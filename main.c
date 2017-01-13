@@ -12,6 +12,16 @@
 
 int main()
 {
+	//nt i;
+	char palavra[40];
+	lPalavras* pl[10];
+	lerArquivo(palavra);
+
+		strcpy(pl[0]->palavras, palavra);
+
+
+	//for (j = 0; j < numPalavras; j++)
+	//		  printf("\n%s", palavras[j]); //Exibi as palavras que estao no vetor.
 	 return 0;
 }
 

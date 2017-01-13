@@ -11,7 +11,7 @@
 #endif /* LISTA_H_ */
 
 typedef struct lPalavras {
-	char palavras[21];
+	char palavras[40];
 	struct lQt* quantidades;
 } lPalavras;
 
@@ -34,4 +34,4 @@ lQt* inseri_Quant_Lin(lQt* pq, lPalavras* pp, int linha);
 
 //Funções de funcionamento
 void soma_quant(lQt* pq, lPalavras* pp);
-void lerArquivo (char* palavras[]);
+void lerArquivo (char* c);

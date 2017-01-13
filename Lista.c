@@ -25,7 +25,7 @@ lPalavras* inserePalavras(lPalavras* pp, char* palavra)
 }
 void imprime(lPalavras* pp)
 {
-	lPalavras* pri;
+	//lPalavras* pri;
 	//for(pri = pp; pri != NULL; pri = pri->proxPalavra){
 		//printf("%s\n", pri->palavras);
 	//}
@@ -33,12 +33,13 @@ void imprime(lPalavras* pp)
 }
 lPalavras* buscaPalavras(lPalavras* pp, char* palavra)
 {
+	/*
 	lPalavras* aux;
-	//for(aux = pp; aux != NULL; aux = aux->proxPalavra){
+	for(aux = pp; aux != NULL; aux = aux->palavras){
 		if(strcmp(palavra, pp->palavras)){
 			return aux;
 		}
-	//}
+	}*/
 	return NULL;
 }
 
@@ -67,34 +68,28 @@ void soma_quant(lQt* pq, lPalavras* pp)
 		pq->quantVezes++;
 	//}
 }
-int lerArquivo (char* palavras[])
+void lerArquivo (char *pCaractere)
 {
-	int i = 0, j;
-	 int numPalavras = 0;
-	 //char* palavras[21];
-	 char line[21];
+	char caractere;
+	int i = 0;
 
-	 FILE *arquivo;
-	 arquivo = fopen("texto.txt", "r");
-	 if (arquivo == NULL){
-		 printf("!!!   ERRO   !!!");
-		 return EXIT_FAILURE;
-	 }
-	  while(fgets(line, sizeof line, arquivo) != '\0')
-	  {
-		  //Adiciona cada palavra no vetor
-		  palavras[i] = strdup(line);
+	FILE *arquivo;
+	arquivo = fopen("texto.txt", "r");
+	if (arquivo == NULL){
+		printf("!!!   ERRO   !!!");
 
-		  i++;
-		  //Conta a quantidade de palavras
-		  numPalavras++;
-	 }
-
-	  for (j = 0; j < numPalavras; j++)
-		  printf("\n%s", palavras[j]); //Exibi as palavras que estao no vetor.
+	}
+	caractere = fgetc(arquivo);
+	if(caractere != EOF){
+		while(caractere != ' '){
+			i++;
+			caractere = fgetc(arquivo);
+		}
+		//caractere = '\0';
+		//strcpy(caractere , pCaractere);
+	}
 
 	 fclose(arquivo);
-	 return EXIT_SUCCESS;
 }
 
 
