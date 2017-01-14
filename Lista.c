@@ -2,14 +2,15 @@
  * Lista.c
  *
  *  Created on: 26 de dez de 2016
- *      Author: MACHADO-AXE
+ *      Autores: MACHADO-AXE - FRANCISCO PIRES JUNIOR.
+ * 
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "Lista.h"
 
-//Funções para as Palavras
+//FunÃ§Ãµes para as Palavras
 lPalavras* criaListPalavras()
 {
 	return NULL;
@@ -43,7 +44,7 @@ lPalavras* buscaPalavras(lPalavras* pp, char* palavra)
 	return NULL;
 }
 
-//Funções para Quantidades
+//FunÃ§Ãµes para Quantidades
 lQt* ciraQt(lQt* pq, lPalavras* pp, char* palavra)
 {
 	//pq->proxPalavra = buscaPalavras(pp, palavra);
@@ -60,7 +61,7 @@ lQt* inseri_Quant_Lin(lQt* pq, lPalavras* pp, int linha)
 	return novoQ;
 }
 
-//Funções de funcionamento
+//FunÃ§Ãµes de funcionamento
 void soma_quant(lQt* pq, lPalavras* pp)
 {
 	//Corrigir isso aqui
@@ -72,24 +73,24 @@ void lerArquivo (char *pCaractere)
 {
 	char caractere;
 	int i = 0;
+	char palavra[1000];
 
 	FILE *arquivo;
-	arquivo = fopen("texto.txt", "r");
+	arquivo = fopen("J:\\CiÃªncia da ComputaÃ§Ã£o UFRR\\Semestre 2016.2\\Estrutura de Dados\\TRABALHO PRATICO I\\Artefato 2\\texto.txt", "r");
 	if (arquivo == NULL){
-		printf("!!!   ERRO   !!!");
-
-	}
-	caractere = fgetc(arquivo);
-	if(caractere != EOF){
+		printf("!!!   ERRO AO ABRIR O ARQUIVO  !!!");
+		exit(1);
+    }
+	char *result = fgets(palavra,1000,arquivo);
+	caractere = '\0';
+	if(result != EOF){
 		while(caractere != ' '){
 			i++;
-			caractere = fgetc(arquivo);
+			result = fgets(palavra,1000,arquivo);
 		}
 		//caractere = '\0';
-		//strcpy(caractere , pCaractere);
+		strcpy(result , pCaractere);
 	}
 
 	 fclose(arquivo);
 }
-
-
