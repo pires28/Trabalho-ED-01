@@ -2,7 +2,8 @@
  * main.c
  *
  *  Created on: 26 de dez de 2016
- *      Author: MACHADO-AXE
+ *      Author: MACHADO-AXE - Francisco Pires Junior
+ *	Curso: Ciência da Computação - UFRR
  */
 
 #include <stdio.h>
